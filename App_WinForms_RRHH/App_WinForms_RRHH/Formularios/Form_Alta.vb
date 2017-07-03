@@ -50,4 +50,10 @@ Public Class Form_Alta
         numRetribucion.Value = 0
     End Sub
 
+    Private Sub AlActivarseFormulario(sender As Object, e As EventArgs) Handles Me.Activated
+        Me.MdiParent.Text = "Alta empleado"
+    End Sub
+    Private Sub AlDesActivarseFormulario(sender As Object, e As EventArgs) Handles Me.FormClosed
+        Me.MdiParent.Text = "Principal"
+    End Sub
 End Class
