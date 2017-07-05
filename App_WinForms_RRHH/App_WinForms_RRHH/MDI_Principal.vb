@@ -5,6 +5,7 @@ Public Class MDI_Principal
 
     Private frmAlta As Form_Alta
     Private frmBaja As Form_baja
+    Private frmLista As Form_Lista
 
     Private Sub Abrir_Formulario(Of TForm As {Form, New})(ByRef formulario As TForm)
         If formulario Is Nothing OrElse formulario.IsDisposed() Then
@@ -15,6 +16,7 @@ Public Class MDI_Principal
             formulario.Show()
             ActivateMdiChild(formulario)
         End If
+        formulario.Activate()
     End Sub
     Private Sub AltaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaToolStripMenuItem.Click
         Abrir_Formulario(Of Form_Alta)(frmAlta)
@@ -22,8 +24,12 @@ Public Class MDI_Principal
     Private Sub BajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BajaToolStripMenuItem.Click
         Abrir_Formulario(Of Form_baja)(frmBaja)
     End Sub
-
-
+    Private Sub ListarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListarToolStripMenuItem.Click
+        Abrir_Formulario(Of Form_Lista)(frmLista)
+    End Sub
+    Private Sub tolAlta_Click(sender As Object, e As EventArgs) Handles tolAlta.Click
+        AltaToolStripMenuItem_Click(sender, e)
+    End Sub
     ' *** CODIGO AUTOGENERADO POR VISUAL STUDIO
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripMenuItem.Click, NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
         ' Cree una nueva instancia del formulario secundario.
@@ -41,6 +47,7 @@ Public Class MDI_Principal
         OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
         OpenFileDialog.Filter = "Archivos de texto (*.csv)|*.csv|Todos los archivos (*.*)|*.*"
         OpenFileDialog.CheckFileExists = True
+
         If (OpenFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
             Dim FileName As String = OpenFileDialog.FileName
             EmpleadosFichero.nombreFichero = FileName
@@ -50,7 +57,7 @@ Public Class MDI_Principal
     End Sub
     Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SaveAsToolStripMenuItem.Click
         Dim SaveFileDialog As New SaveFileDialog
-        SaveFileDialog.InitialDirectory = EmpleadosFichero.nombreFichero 'My.Computer.FileSystem.SpecialDirectories.MyDocuments
+        SaveFileDialog.InitialDirectory = EmpleadosFichero.nombreFichero
         SaveFileDialog.Filter = "Archivos de texto (*.csv)|*.csv|Todos los archivos (*.*)|*.*"
 
         If (SaveFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
@@ -58,7 +65,6 @@ Public Class MDI_Principal
 
             EmpleadosFichero.nombreFichero = FileName
             EmpleadosCRUD.Grabar()
-
         End If
     End Sub
     Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
@@ -108,16 +114,19 @@ Public Class MDI_Principal
     Private m_ChildFormNumber As Integer
 
     Private Sub MDI_Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'EmpleadosCRUD.Restaurar()
+
         Me.ContextMenuStrip = ContextMenuStrip1
         EmpleadosToolStripMenuItem.Enabled = False
     End Sub
 
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Shell("explorer https://www.bbva.es")
+    End Sub
 
     Private Sub CambiarFuenteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CambiarFuenteToolStripMenuItem.Click
 
-        Dim dialogoFuente As FontDialog
-        If dialogoFuente.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+        Dim dialogoFuente As New FontDialog
+        If dialogoFuente.ShowDialog(Me) = DialogResult.OK Then
             Me.Font = dialogoFuente.Font
             For Each formulario In Me.MdiChildren
                 formulario.Font = dialogoFuente.Font
@@ -125,7 +134,8 @@ Public Class MDI_Principal
         End If
     End Sub
 
-    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click, SaveToolStripButton.Click
+    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
+
         EmpleadosCRUD.Grabar()
     End Sub
 

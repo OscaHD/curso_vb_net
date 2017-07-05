@@ -50,6 +50,7 @@ Partial Class MDI_Principal
         Me.ViewMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusBarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CambiarFuenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -84,11 +85,11 @@ Partial Class MDI_Principal
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolAlta = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tolAlta = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolBaja = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CambiarFuenteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tolBaja = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -101,7 +102,8 @@ Partial Class MDI_Principal
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(632, 24)
+        Me.MenuStrip.Padding = New System.Windows.Forms.Padding(9, 3, 0, 3)
+        Me.MenuStrip.Size = New System.Drawing.Size(948, 25)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -110,7 +112,7 @@ Partial Class MDI_Principal
         Me.FileMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripMenuItem, Me.OpenToolStripMenuItem, Me.ToolStripSeparator3, Me.SaveToolStripMenuItem, Me.SaveAsToolStripMenuItem, Me.ToolStripSeparator4, Me.PrintToolStripMenuItem, Me.PrintPreviewToolStripMenuItem, Me.PrintSetupToolStripMenuItem, Me.ToolStripSeparator5, Me.ExitToolStripMenuItem})
         Me.FileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder
         Me.FileMenu.Name = "FileMenu"
-        Me.FileMenu.Size = New System.Drawing.Size(60, 20)
+        Me.FileMenu.Size = New System.Drawing.Size(60, 19)
         Me.FileMenu.Text = "&Archivo"
         '
         'NewToolStripMenuItem
@@ -194,7 +196,7 @@ Partial Class MDI_Principal
         '
         Me.EditMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UndoToolStripMenuItem, Me.RedoToolStripMenuItem, Me.ToolStripSeparator6, Me.CutToolStripMenuItem, Me.CopyToolStripMenuItem, Me.PasteToolStripMenuItem, Me.ToolStripSeparator7, Me.SelectAllToolStripMenuItem})
         Me.EditMenu.Name = "EditMenu"
-        Me.EditMenu.Size = New System.Drawing.Size(49, 20)
+        Me.EditMenu.Size = New System.Drawing.Size(49, 19)
         Me.EditMenu.Text = "&Editar"
         '
         'UndoToolStripMenuItem
@@ -263,7 +265,7 @@ Partial Class MDI_Principal
         '
         Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolBarToolStripMenuItem, Me.StatusBarToolStripMenuItem, Me.CambiarFuenteToolStripMenuItem})
         Me.ViewMenu.Name = "ViewMenu"
-        Me.ViewMenu.Size = New System.Drawing.Size(36, 20)
+        Me.ViewMenu.Size = New System.Drawing.Size(35, 19)
         Me.ViewMenu.Text = "&Ver"
         '
         'ToolBarToolStripMenuItem
@@ -284,13 +286,19 @@ Partial Class MDI_Principal
         Me.StatusBarToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
         Me.StatusBarToolStripMenuItem.Text = "&Barra de estado"
         '
+        'CambiarFuenteToolStripMenuItem
+        '
+        Me.CambiarFuenteToolStripMenuItem.Name = "CambiarFuenteToolStripMenuItem"
+        Me.CambiarFuenteToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
+        Me.CambiarFuenteToolStripMenuItem.Text = "Cambiar fuente"
+        '
         'EmpleadosToolStripMenuItem
         '
-        Me.EmpleadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaToolStripMenuItem, Me.BajaToolStripMenuItem, Me.ModificaciónToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.ListarToolStripMenuItem, Me.GuardarAutomaticamenteToolStripMenuItem})
+        Me.EmpleadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListarToolStripMenuItem, Me.AltaToolStripMenuItem, Me.BajaToolStripMenuItem, Me.ModificaciónToolStripMenuItem, Me.BuscarToolStripMenuItem, Me.GuardarAutomaticamenteToolStripMenuItem})
         Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
         Me.EmpleadosToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
+        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(77, 19)
         Me.EmpleadosToolStripMenuItem.Text = "Em&pleados"
         '
         'AltaToolStripMenuItem
@@ -325,7 +333,6 @@ Partial Class MDI_Principal
         '
         'ListarToolStripMenuItem
         '
-        Me.ListarToolStripMenuItem.Enabled = False
         Me.ListarToolStripMenuItem.Name = "ListarToolStripMenuItem"
         Me.ListarToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.ListarToolStripMenuItem.Text = "&Listar"
@@ -343,7 +350,7 @@ Partial Class MDI_Principal
         '
         Me.ToolsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem})
         Me.ToolsMenu.Name = "ToolsMenu"
-        Me.ToolsMenu.Size = New System.Drawing.Size(90, 20)
+        Me.ToolsMenu.Size = New System.Drawing.Size(90, 19)
         Me.ToolsMenu.Text = "&Herramientas"
         '
         'OptionsToolStripMenuItem
@@ -356,7 +363,7 @@ Partial Class MDI_Principal
         '
         Me.WindowsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewWindowToolStripMenuItem, Me.CascadeToolStripMenuItem, Me.TileVerticalToolStripMenuItem, Me.TileHorizontalToolStripMenuItem, Me.CloseAllToolStripMenuItem, Me.ArrangeIconsToolStripMenuItem})
         Me.WindowsMenu.Name = "WindowsMenu"
-        Me.WindowsMenu.Size = New System.Drawing.Size(67, 20)
+        Me.WindowsMenu.Size = New System.Drawing.Size(66, 19)
         Me.WindowsMenu.Text = "&Ventanas"
         '
         'NewWindowToolStripMenuItem
@@ -399,7 +406,7 @@ Partial Class MDI_Principal
         '
         Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentsToolStripMenuItem, Me.IndexToolStripMenuItem, Me.SearchToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem})
         Me.HelpMenu.Name = "HelpMenu"
-        Me.HelpMenu.Size = New System.Drawing.Size(53, 20)
+        Me.HelpMenu.Size = New System.Drawing.Size(53, 19)
         Me.HelpMenu.Text = "Ay&uda"
         '
         'ContentsToolStripMenuItem
@@ -439,9 +446,10 @@ Partial Class MDI_Principal
         'ToolStrip
         '
         Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.PrintToolStripButton, Me.PrintPreviewToolStripButton, Me.ToolStripSeparator2, Me.HelpToolStripButton})
-        Me.ToolStrip.Location = New System.Drawing.Point(0, 24)
+        Me.ToolStrip.Location = New System.Drawing.Point(0, 25)
         Me.ToolStrip.Name = "ToolStrip"
-        Me.ToolStrip.Size = New System.Drawing.Size(632, 25)
+        Me.ToolStrip.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
+        Me.ToolStrip.Size = New System.Drawing.Size(948, 25)
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
         '
@@ -512,9 +520,10 @@ Partial Class MDI_Principal
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 675)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(632, 22)
+        Me.StatusStrip.Padding = New System.Windows.Forms.Padding(2, 0, 21, 0)
+        Me.StatusStrip.Size = New System.Drawing.Size(948, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
@@ -524,45 +533,54 @@ Partial Class MDI_Principal
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(42, 17)
         Me.ToolStripStatusLabel.Text = "Estado"
         '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(807, 55)
+        Me.LinkLabel1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(134, 20)
+        Me.LinkLabel1.TabIndex = 9
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Visitar web BBVA"
+        '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolAlta, Me.ToolStripSeparator9, Me.ToolBaja})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tolAlta, Me.ToolStripSeparator9, Me.tolBaja})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(97, 54)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(101, 54)
+        Me.ContextMenuStrip1.Text = "Menu contextual"
         '
-        'ToolAlta
+        'tolAlta
         '
-        Me.ToolAlta.Name = "ToolAlta"
-        Me.ToolAlta.Size = New System.Drawing.Size(96, 22)
-        Me.ToolAlta.Text = "Alta"
+        Me.tolAlta.Name = "tolAlta"
+        Me.tolAlta.Size = New System.Drawing.Size(100, 22)
+        Me.tolAlta.Text = "Altas"
         '
         'ToolStripSeparator9
         '
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(93, 6)
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(97, 6)
         '
-        'ToolBaja
+        'tolBaja
         '
-        Me.ToolBaja.Name = "ToolBaja"
-        Me.ToolBaja.Size = New System.Drawing.Size(96, 22)
-        Me.ToolBaja.Text = "Baja"
-        '
-        'CambiarFuenteToolStripMenuItem
-        '
-        Me.CambiarFuenteToolStripMenuItem.Name = "CambiarFuenteToolStripMenuItem"
-        Me.CambiarFuenteToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
-        Me.CambiarFuenteToolStripMenuItem.Text = "Cambiar fuente"
+        Me.tolBaja.Name = "tolBaja"
+        Me.tolBaja.Size = New System.Drawing.Size(100, 22)
+        Me.tolBaja.Text = "Baja"
         '
         'MDI_Principal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(632, 453)
+        Me.ClientSize = New System.Drawing.Size(948, 697)
+        Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "MDI_Principal"
         Me.Text = "MDI_Principal"
         Me.MenuStrip.ResumeLayout(False)
@@ -635,9 +653,10 @@ Partial Class MDI_Principal
     Friend WithEvents BuscarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ListarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GuardarAutomaticamenteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents ToolAlta As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolBaja As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents CambiarFuenteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents tolAlta As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents tolBaja As ToolStripMenuItem
+    Friend WithEvents CambiarFuenteToolStripMenuItem As ToolStripMenuItem
 End Class
