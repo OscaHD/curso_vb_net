@@ -22,8 +22,8 @@ Public Class Form_Modificacion
     Private Sub Form_Modificacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtNombre.Text = _empleado.nombre
         txtApellidos.Text = _empleado.apellidos
-        cmbGenero.SelectedItem = _empleado.genero
-        domCategoria.SelectedItem = _empleado.categoria
+        cmbGenero.SelectedIndex = _empleado.genero - 1
+        domCategoria.SelectedIndex = _empleado.categoria - 1
         numRetribucion.Value = CType(_empleado.retribucionFija, Decimal)
     End Sub
 

@@ -8,11 +8,12 @@
         Public retribucionFija As Single
 
         ' Constructor
-        Public Sub New(nuevoNombre As String, nuevoApell As String, nuevoGenero As TipoGenero, nuevaCategoria As TipoCategoria)
+        Public Sub New(nuevoNombre As String, nuevoApell As String, nuevoGenero As TipoGenero, nuevaCategoria As TipoCategoria, nuevaRt As Single)
             nombre = nuevoNombre
             apellidos = nuevoApell
             genero = nuevoGenero
             categoria = nuevaCategoria
+            retribucionFija = nuevaRT
             Console.Write("Se ha creado el nuevo empleado " + nombre)
         End Sub
         Function NombreCompleto() As String
@@ -22,11 +23,12 @@
 
             Dim arrayCampos() As String = textoRegistro.Split(CType(",", Char))
 
-            If arrayCampos.Length = 4 Then
+            If arrayCampos.Length = 5 Then
                 nombre = arrayCampos(0)
                 apellidos = arrayCampos(1)
                 genero = CType(Integer.Parse(arrayCampos(2)), TipoGenero)
                 categoria = CType(Integer.Parse(arrayCampos(3)), TipoCategoria)
+                retribucionFija = Single.Parse(arrayCampos(4))
                 Console.WriteLine(ToString())
                 Return True
             Else
