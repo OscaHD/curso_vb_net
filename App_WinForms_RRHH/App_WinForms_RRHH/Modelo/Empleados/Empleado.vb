@@ -7,13 +7,20 @@
         Public categoria As TipoCategoria
         Public retribucionFija As Single
 
+        'Public Sub New()
+        '    nombre = ""
+        '    apellidos = ""
+        '    genero = TipoGenero.Hermafrodita
+        '    categoria = TipoCategoria.Administrativo
+        '    retribucionFija = 0
+        'End Sub
         ' Constructor
-        Public Sub New(nuevoNombre As String, nuevoApell As String, nuevoGenero As TipoGenero, nuevaCategoria As TipoCategoria, nuevaRt As Single)
+        Public Sub New(nuevoNombre As String, nuevoApell As String, nuevoGenero As TipoGenero, nuevaCategoria As TipoCategoria, nuevaRetribucion As Single)
             nombre = nuevoNombre
             apellidos = nuevoApell
             genero = nuevoGenero
             categoria = nuevaCategoria
-            retribucionFija = nuevaRT
+            retribucionFija = nuevaRetribucion
             Console.Write("Se ha creado el nuevo empleado " + nombre)
         End Sub
         Function NombreCompleto() As String

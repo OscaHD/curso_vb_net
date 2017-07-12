@@ -41,31 +41,6 @@ Public Class MDI_Principal
 
         ChildForm.Show()
     End Sub
-    Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
-        Dim OpenFileDialog As New OpenFileDialog
-        OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
-        OpenFileDialog.Filter = "Archivos de texto (*.csv)|*.csv|Todos los archivos (*.*)|*.*"
-        OpenFileDialog.CheckFileExists = True
-
-        If (OpenFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
-            Dim FileName As String = OpenFileDialog.FileName
-            EmpleadosFichero.nombreFichero = FileName
-            EmpleadosCRUD.Restaurar()
-            EmpleadosToolStripMenuItem.Enabled = True
-        End If
-    End Sub
-    Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SaveAsToolStripMenuItem.Click
-        Dim SaveFileDialog As New SaveFileDialog
-        SaveFileDialog.InitialDirectory = EmpleadosFichero.nombreFichero
-        SaveFileDialog.Filter = "Archivos de texto (*.csv)|*.csv|Todos los archivos (*.*)|*.*"
-
-        If (SaveFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
-            Dim FileName As String = SaveFileDialog.FileName
-
-            EmpleadosFichero.nombreFichero = FileName
-            EmpleadosCRUD.Grabar()
-        End If
-    End Sub
     Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
         Me.Close()
     End Sub
@@ -116,6 +91,7 @@ Public Class MDI_Principal
 
         Me.ContextMenuStrip = ContextMenuStrip1
         EmpleadosToolStripMenuItem.Enabled = False
+        EmpleadosCRUD.avisarEnModicacion = AddressOf HabilitarMenusGuardarExportar
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
@@ -132,10 +108,61 @@ Public Class MDI_Principal
             Next
         End If
     End Sub
+    Private empleadosFichero As New EmpleadosFichero
+    Private empleadosExcel As New EmpleadosExcel
+    Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
 
+        empleadosFichero.NombreFichero = DialogoAbrirFichero("csv")
+        EmpleadosCRUD.Restaurar(empleadosFichero)
+        HabilitarMenusGuardarExportar(True)
+    End Sub
+    Private Function DialogoAbrirFichero(extension As String) As String
+        Dim OpenFileDialog As New OpenFileDialog
+        OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
+        OpenFileDialog.Filter = "Archivos de texto (*." & extension & ")|*." & extension & "|Todos los archivos (*.*)|*.*"
+        OpenFileDialog.CheckFileExists = True
+
+        If (OpenFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
+            EmpleadosToolStripMenuItem.Enabled = True
+            Return OpenFileDialog.FileName
+        Else
+            Return ""
+        End If
+    End Function
+    Private Sub SaveAsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SaveAsToolStripMenuItem.Click
+
+        empleadosFichero.NombreFichero = DialogoGuardarFichero("csv")
+        EmpleadosCRUD.Grabar(empleadosFichero)
+    End Sub
+    Private Function DialogoGuardarFichero(extension As String) As String
+        Dim SaveFileDialog As New SaveFileDialog
+        SaveFileDialog.InitialDirectory = empleadosFichero.NombreFichero
+        SaveFileDialog.Filter = "Archivos de texto (*." & extension & ")|*." & extension & "|Todos los archivos (*.*)|*.*"
+
+        If (SaveFileDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK) Then
+            Return SaveFileDialog.FileName
+        Else
+            Return ""
+        End If
+    End Function
     Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
 
-        EmpleadosCRUD.Grabar()
+        EmpleadosCRUD.Grabar(empleadosFichero)
     End Sub
+    Private Sub ImportarExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportarExcelToolStripMenuItem.Click
+        empleadosExcel.NombreFichero = DialogoAbrirFichero("xlsx")
+        EmpleadosCRUD.Restaurar(empleadosExcel)
+        HabilitarMenusGuardarExportar(True)
+    End Sub
+    Private Sub ExportarExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportarExcelToolStripMenuItem.Click
 
+        empleadosExcel.NombreFichero = DialogoGuardarFichero("xlsx")
+        EmpleadosCRUD.Grabar(empleadosExcel)
+    End Sub
+    Private Sub HabilitarMenusGuardarExportar(estado As Boolean)
+        SaveAsToolStripMenuItem.Enabled = estado
+        SaveToolStripMenuItem.Enabled = estado
+        SaveToolStripButton.Enabled = estado
+        ExportarExcelToolStripMenuItem.Enabled = estado
+    End Sub
 End Class

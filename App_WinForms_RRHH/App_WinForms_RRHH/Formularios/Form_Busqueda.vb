@@ -6,7 +6,6 @@ Public Class Form_Busqueda
     Private Sub Form_Activate(sender As Object, e As EventArgs) Handles Me.Activated
         BuscarEmpleado()
     End Sub
-
     Private Sub cmbNombre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbNombre.SelectedIndexChanged
         BuscarEmpleado()
     End Sub
@@ -35,6 +34,7 @@ Public Class Form_Busqueda
             Dim empleado As Empleado
             empleado = listaEmpleados(indexEmpleado)
             listaElminar.Add(empleado)
+
         Next
         While lstListaEmpleados.SelectedItems.Count > 0
             lstListaEmpleados.Items.Remove(lstListaEmpleados.SelectedItems(0))
@@ -49,13 +49,8 @@ Public Class Form_Busqueda
             frmModificar.MdiParent = Me.MdiParent
             frmModificar.Empleado = listaEmpleados(indexEmpleado)
             frmModificar.Show()
-
             'listaEmpleados(indexEmpleado) = frmModificar.Empleado
             'EmpleadosCRUD.Actualizar(frmModificar.Empleado)
         Next
-    End Sub
-
-    Private Sub btnCerrar_Click(sender As Object, e As EventArgs) Handles btnCerrar.Click
-        Me.Close()
     End Sub
 End Class

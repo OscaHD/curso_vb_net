@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7537526E-36A6-4BAB-9997-FC79227D5A43}</ProjectGuid>
+    <ProjectGuid>{4119C93C-DBE3-470A-ACF6-2FEB9E6EA11F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <StartupObject>App_5_Ejemplo_WinForm_Threading_Y_Excel.My.MyApplication</StartupObject>
     <RootNamespace>App_5_Ejemplo_WinForm_Threading_Y_Excel</RootNamespace>
-    <AssemblyName>App_5_Ejemplo_WinForm_Threading_Y_Excel</AssemblyName>
+    <AssemblyName>d</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -20,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>App_5_Ejemplo_WinForm_Threading_Y_Excel.xml</DocumentationFile>
+    <DocumentationFile>d.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -30,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>App_5_Ejemplo_WinForm_Threading_Y_Excel.xml</DocumentationFile>
+    <DocumentationFile>d.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -55,6 +57,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -70,17 +73,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="EscritorExcel.vb" />
+    <Compile Include="Form_Thread.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Form_Thread.Designer.vb">
+      <DependentUpon>Form_Thread.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_excel.Designer.vb">
-      <DependentUpon>Form_excel.vb</DependentUpon>
+    <Compile Include="Form_Excel.Designer.vb">
+      <DependentUpon>Form_Excel.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form_excel.vb">
+    <Compile Include="Form_Excel.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LectorExcel.vb" />
@@ -101,11 +105,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Form_Excel.resx">
+      <DependentUpon>Form_Excel.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_excel.resx">
-      <DependentUpon>Form_excel.vb</DependentUpon>
+    <EmbeddedResource Include="Form_Thread.resx">
+      <DependentUpon>Form_Thread.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
