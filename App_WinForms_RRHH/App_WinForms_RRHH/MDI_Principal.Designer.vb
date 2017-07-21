@@ -80,6 +80,7 @@ Partial Class MDI_Principal
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NUEVAOPCIONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.NewToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.OpenToolStripButton = New System.Windows.Forms.ToolStripButton()
@@ -97,14 +98,10 @@ Partial Class MDI_Principal
         Me.tolAlta = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.tolBaja = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NUEVAOPCIONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip
@@ -314,7 +311,7 @@ Partial Class MDI_Principal
         '
         Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolBarToolStripMenuItem, Me.StatusBarToolStripMenuItem, Me.CambiarFuenteToolStripMenuItem})
         Me.ViewMenu.Name = "ViewMenu"
-        Me.ViewMenu.Size = New System.Drawing.Size(35, 19)
+        Me.ViewMenu.Size = New System.Drawing.Size(36, 19)
         Me.ViewMenu.Text = "&Ver"
         '
         'ToolBarToolStripMenuItem
@@ -418,7 +415,7 @@ Partial Class MDI_Principal
         '
         Me.WindowsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewWindowToolStripMenuItem, Me.CascadeToolStripMenuItem, Me.TileVerticalToolStripMenuItem, Me.TileHorizontalToolStripMenuItem, Me.CloseAllToolStripMenuItem, Me.ArrangeIconsToolStripMenuItem})
         Me.WindowsMenu.Name = "WindowsMenu"
-        Me.WindowsMenu.Size = New System.Drawing.Size(66, 19)
+        Me.WindowsMenu.Size = New System.Drawing.Size(67, 19)
         Me.WindowsMenu.Text = "&Ventanas"
         '
         'NewWindowToolStripMenuItem
@@ -497,6 +494,12 @@ Partial Class MDI_Principal
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.AboutToolStripMenuItem.Text = "&Acerca de..."
+        '
+        'NUEVAOPCIONToolStripMenuItem
+        '
+        Me.NUEVAOPCIONToolStripMenuItem.Name = "NUEVAOPCIONToolStripMenuItem"
+        Me.NUEVAOPCIONToolStripMenuItem.Size = New System.Drawing.Size(105, 19)
+        Me.NUEVAOPCIONToolStripMenuItem.Text = "NUEVA OPCION"
         '
         'ToolStrip
         '
@@ -624,32 +627,11 @@ Partial Class MDI_Principal
         Me.tolBaja.Size = New System.Drawing.Size(100, 22)
         Me.tolBaja.Text = "Baja"
         '
-        'NUEVAOPCIONToolStripMenuItem
-        '
-        Me.NUEVAOPCIONToolStripMenuItem.Name = "NUEVAOPCIONToolStripMenuItem"
-        Me.NUEVAOPCIONToolStripMenuItem.Size = New System.Drawing.Size(104, 19)
-        Me.NUEVAOPCIONToolStripMenuItem.Text = "NUEVA OPCION"
-        '
-        'MonthCalendar1
-        '
-        Me.MonthCalendar1.Location = New System.Drawing.Point(441, 199)
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.TabIndex = 11
-        '
-        'NumericUpDown1
-        '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(668, 243)
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(120, 26)
-        Me.NumericUpDown1.TabIndex = 12
-        '
         'MDI_Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(948, 697)
-        Me.Controls.Add(Me.NumericUpDown1)
-        Me.Controls.Add(Me.MonthCalendar1)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
@@ -667,7 +649,6 @@ Partial Class MDI_Principal
         Me.StatusStrip.ResumeLayout(False)
         Me.StatusStrip.PerformLayout()
         Me.ContextMenuStrip1.ResumeLayout(False)
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -745,6 +726,4 @@ Partial Class MDI_Principal
     Friend WithEvents ExportarAccesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Generar10000ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NUEVAOPCIONToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MonthCalendar1 As MonthCalendar
-    Friend WithEvents NumericUpDown1 As NumericUpDown
 End Class
