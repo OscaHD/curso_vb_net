@@ -23,12 +23,12 @@ Public Class Form_Alta
             nuevoEmpleado.categoria = CType(domCategoria.SelectedIndex + 1, TipoCategoria)
             nuevoEmpleado.retribucionFija = numRetribucion.Value
 
-            EmpleadosCRUD.Crear(nuevoEmpleado)
+            CType(Me.MdiParent, MDI_Principal).empleadosCRUD.Crear(nuevoEmpleado)
 
             Me.Close()
             MessageBox.Show("Empleado creado: " & nuevoEmpleado.ToString())
         Catch ex As Exception
-            MessageBox.Show("Error al guardar")
+            MessageBox.Show("Error al guardar " & ex.Message)
         End Try
     End Sub
     Private Sub texto_TextChanged(sender As Object, e As EventArgs) _
